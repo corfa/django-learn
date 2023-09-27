@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: database
+    environment:
+      POSTGRES_DB: django
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000
+    ports:
+      - "4444:5432"
+
+  django:
+    build: .
+    container_name: django-container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    restart: always
+  
+  minio:
+    image: minio/minio:latest
+    command: server --console-address ":9001" /data
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      MINIO_ROOT_USER: "minioadmin"
+      MINIO_ROOT_PASSWORD: "minioadmin"
