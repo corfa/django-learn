@@ -1,12 +1,12 @@
 FROM python:3.10-slim-buster
 
+WORKDIR /opt
+COPY ./requirements ./app/requirements/
+RUN pip install --no-cache-dir -r ./app/requirements/base.txt
+COPY ./src ./app
 
-WORKDIR /app
+COPY migrate.sh /opt/
+RUN chmod +x /opt/migrate.sh
+RUN /opt/migrate.sh
 
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . /app/
-
-
-CMD ["python3", "manage.py", "runserver"]
+CMD ["python", "manage.py", "runserver"]

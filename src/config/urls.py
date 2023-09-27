@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
-from src.core.views import UserRegistrationView, GroupViewSet, ContactViewSet
+from core.views import UserRegistrationView, GroupViewSet, ContactViewSet
 from rest_framework import routers
 from django.urls import path, include
 

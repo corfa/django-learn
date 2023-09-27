@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'src.core',
+    'core',
     'silk',
     'storages',
 ]
@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 class ServerSettings(BaseSettings):
     DATABASE_NAME: str = 'django'
-    DATABASE_USER: str = 'postgres'
-    DATABASE_PASSWORD: str = '0000'
-    DATABASE_HOST: str = 'localhost'
-    DATABASE_PORT: str = '4444'
+    DATABASE_USER: str = 'example_user'
+    DATABASE_PASSWORD: str = 'example_password'
+    DATABASE_HOST: str = 'database'
+    DATABASE_PORT: str = '5432'
 
 
 

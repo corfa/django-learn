@@ -3,7 +3,6 @@ from .models import Contact, Group,User
 from .serializers import ContactSerializer, GroupSerializer, UserSerializer
 from rest_framework import permissions
 from rest_framework import viewsets
-from django.db.models import Prefetch
 
 
 class ContactViewSet(viewsets.ModelViewSet):
